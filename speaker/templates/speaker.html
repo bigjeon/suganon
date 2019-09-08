@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Suganon Seminars</title>
+</head>
+<body>
+    <h1>속초 연자 후보 리스트</h1>
+    <ul>
+        <li>1. 문의 가능한 연자를 입력후 Add 번튼을 눌러주세요</li>
+        <li>2. 불가 확인을 받으면 delete 버튼을 눌러 리스트에서 삭제해주세요</li>
+    </ul>
+    <ul>
+        {% for speaker_item in all_items %}
+            <li>{{ speaker_item.content }}
+                <form action="/deletespeaker/{{speaker_item.id}}/" style="display: inline;" method="post">{% csrf_token %}
+                    <input type="submit", value="delete"/>
+                </form>
+            </li>
+        {% endfor %}
+    </ul> 
+    <form action="/addspeaker/", method="post">{% csrf_token %}
+        <input type="text", name="content"/>
+        <input type="submit", value="Add"/>
+    </form>
+</body>
+</html>
