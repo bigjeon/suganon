@@ -1,4 +1,4 @@
 from django.db import models
 
-class SpeakerItem(models.Model):
+class TodoItem(models.Model):
     content = models.TextField()

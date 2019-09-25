@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Suganon Seminars</title>
+    <title>To-Do List App</title>
 </head>
 <body>
-    <h1>속초 연자 후보 리스트</h1>
-    <ul>
-        <li>1. 문의 가능한 연자를 입력후 Add 번튼을 눌러주세요</li>
-        <li>2. 불가 확인을 받으면 delete 버튼을 눌러 리스트에서 삭제해주세요</li>
-    </ul>
+    <h1>웹 애플리케이션 제작을 위한 To-Do List</h1>
+
     <ul>
         {% for speaker_item in all_items %}
             <li>{{ speaker_item.content }}
@@ -17,7 +14,7 @@
                 </form>
             </li>
         {% endfor %}
-    </ul> 
+    </ul>
     <form action="/addspeaker/", method="post">{% csrf_token %}
         <input type="text", name="content"/>
         <input type="submit", value="Add"/>
